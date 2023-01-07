@@ -1,0 +1,18 @@
+{
+    "name": "poetools.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:48165e4932c2d0c4c9f9eba53d9f9863"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
