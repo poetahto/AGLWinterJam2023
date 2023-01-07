@@ -5,7 +5,7 @@ namespace poetools.NewDirectory1
 {
     public class FPSCrouchingSystem : MonoBehaviour
     {
-        [SerializeField] private RigidbodyWrapper physics;
+        // [SerializeField] private CharacterController controller;
         [SerializeField] private BoxCollider controller;
         [SerializeField] private Trigger safeStandTrigger;
         [SerializeField] private Vector3 crouchingOffset;
@@ -13,6 +13,7 @@ namespace poetools.NewDirectory1
         [SerializeField] private Vector3 crouchingHeight = Vector3.one;
         [SerializeField] private float crouchingSpeedMultiplier = 0.5f;
         [SerializeField] private float crouchSpeed = 15f;
+        [SerializeField] private GroundCheck groundCheck;
 
         private float CrouchingYPos { get; set; }
         private float StandingYPos { get; set; }
@@ -38,7 +39,7 @@ namespace poetools.NewDirectory1
             {
                 Parent.controller.size = Parent.StandingHeight;
                 Parent.controller.center += Vector3.up * 0.3f;
-                Parent.physics.groundCheckOffset = Vector3.zero;
+                Parent.groundCheck.transform.localPosition = Vector3.zero;
             }
 
             public override void Update()
@@ -63,7 +64,10 @@ namespace poetools.NewDirectory1
                 // center.y = Parent.CrouchingYPos;
                 // Parent.controller.center = center;
                 Parent.controller.size = Parent.crouchingHeight;
-                Parent.physics.groundCheckOffset.y = Parent.crouchingOffsetGC;
+                // Parent.physics.groundCheckOffset.y = Parent.crouchingOffsetGC;
+                var lp = Parent.groundCheck.transform.localPosition;
+                lp.y = Parent.crouchingOffsetGC;
+                Parent.groundCheck.transform.localPosition = lp;
                 
                 if (Parent.TryGetComponent(out FPSQuakeMovementSystem movement))
                 {

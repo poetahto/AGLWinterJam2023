@@ -29,8 +29,9 @@ namespace poetools.NewDirectory1
         public PhysicsComponent physics;
         public CameraComponent playerCamera;
         public float DefaultFov { get; set; }
+        public GroundCheck groundCheck;
 
-        public Settings CurrentSettings => physics.IsGrounded ? groundedSettings : airborneSettings;
+        public Settings CurrentSettings => groundCheck.IsGrounded ? groundedSettings : airborneSettings;
         public float GroundSpeed => new Vector3(physics.Velocity.x, 0, physics.Velocity.z).magnitude;
         
         private Vector3 _targetVelocity;
@@ -65,7 +66,7 @@ namespace poetools.NewDirectory1
         
             CalculateTargetVelocity();
         
-            if (_isAccelerating || useSmoothStop == false || !physics.IsGrounded)
+            if (_isAccelerating || useSmoothStop == false || !groundCheck.IsGrounded)
                 ApplyConstantAcceleration(CurrentSettings);
 
             else if (useSmoothStop)

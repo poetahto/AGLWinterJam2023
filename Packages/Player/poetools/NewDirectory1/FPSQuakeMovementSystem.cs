@@ -15,6 +15,9 @@ namespace poetools.NewDirectory1
             [SerializeField]
             private Transform lookDirection;
             
+            [SerializeField]
+            private GroundCheck groundCheck;
+            
             // [SerializeField] 
             // [Tooltip("The rigidbody that our movement force is applied to.")]
             // private Rigidbody targetRigidbody;
@@ -89,7 +92,7 @@ namespace poetools.NewDirectory1
                     GUILayout.Label($"Current Speed: {CurrentRunningSpeed:F1}");
                     GUILayout.Label($"Forward Speed Multiplier: {ForwardSpeedMultiplier:F1}");
                     GUILayout.Label($"Target Direction: {TargetDirection}");
-                    GUILayout.Label($"Grounded: {physics.IsGrounded}");
+                    GUILayout.Label($"Grounded: {groundCheck.IsGrounded}");
                     
                     ForwardSpeedMultiplier = 
                         GUILayout.HorizontalSlider(ForwardSpeedMultiplier, 0, 2);
@@ -117,7 +120,7 @@ namespace poetools.NewDirectory1
 
     public Vector3 UpdateVelocity()
     {
-        return physics.IsGrounded ? MoveGround() : MoveAir();
+        return groundCheck.IsGrounded ? MoveGround() : MoveAir();
     }
     
     #region Methods
@@ -126,7 +129,7 @@ namespace poetools.NewDirectory1
     
         private Vector3 MoveGround()
         {
-            if (_speed != 0 && physics.GroundTime > noFrictionJumpWindow)
+            if (_speed != 0 && groundCheck.GroundTime > noFrictionJumpWindow)
             {
                 float drop = _speed * friction * Time.deltaTime;
                 // float originalY = _velocity.y;

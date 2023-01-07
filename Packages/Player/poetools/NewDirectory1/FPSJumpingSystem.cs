@@ -79,10 +79,11 @@ namespace poetools.NewDirectory1
         private int _remainingAirJumps;
         private bool _wasGrounded;
 
-        private bool CoyoteAvailable => _coyoteAvailable && PhysicsComponent.AirTime < coyoteTime;
+        private bool CoyoteAvailable => _coyoteAvailable && GroundCheck.AirTime < coyoteTime;
 
         public PhysicsComponent PhysicsComponent;
         public Gravity Gravity;
+        public GroundCheck GroundCheck;
         
         public void RefreshJumps()
         {
@@ -99,13 +100,13 @@ namespace poetools.NewDirectory1
 
         private bool ShouldJump()
         {
-            if ((PhysicsComponent.IsGrounded || CoyoteAvailable) && _groundJumpAvailable)
+            if ((GroundCheck.IsGrounded || CoyoteAvailable) && _groundJumpAvailable)
             {
                 _groundJumpAvailable = false;
                 return true;
             }
 
-            if (!PhysicsComponent.IsGrounded && _remainingAirJumps > 0)
+            if (!GroundCheck.IsGrounded && _remainingAirJumps > 0)
             {
                 _remainingAirJumps--;
                 return true;
@@ -160,10 +161,10 @@ namespace poetools.NewDirectory1
             bool rising = PhysicsComponent.Velocity.y > 0;
             Gravity.amount = GetCurrentGravity(rising, holdingJump);
 
-            if (!_wasGrounded && PhysicsComponent.IsGrounded)
+            if (!_wasGrounded && GroundCheck.IsGrounded)
                 RefreshJumps();
             
-            _wasGrounded = PhysicsComponent.IsGrounded;
+            _wasGrounded = GroundCheck.IsGrounded;
         }
     }
 }
