@@ -13,6 +13,9 @@ namespace DefaultNamespace
                 var main = particles.main;
                 main.startColor = color;
             }
+
+            foreach (var lights in GetComponentsInChildren<Light>())
+                lights.color = color;
         }
     }
 }
