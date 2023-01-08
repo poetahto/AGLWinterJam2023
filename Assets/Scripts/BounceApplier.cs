@@ -1,5 +1,6 @@
 ﻿using poetools;
 using poetools.Abstraction;
+using TMPro;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -24,7 +25,10 @@ namespace DefaultNamespace
         private void GroundCheckOnOnTouchGround()
         {
             if (groundCheck.ConnectedCollider.TryGetComponent(out BouncePlatform bounce))
+            {
+                _physics.Velocity = new Vector3(_physics.Velocity.x, 0, _physics.Velocity.z);
                 _physics.Velocity += groundCheck.ContactNormal * bounce.launchSpeed;
+            }
         }
     }
 }

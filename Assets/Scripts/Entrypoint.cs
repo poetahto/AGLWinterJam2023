@@ -88,3 +88,19 @@ public class Entrypoint : MonoBehaviour
         jumpPlayer.Dispose();
     }
 }
+//
+// public class DebugUtilities
+// {
+//     public void Update()
+//     {
+//         if (Input.GetKeyDown(KeyCode.R))
+//         {
+//             // restart level
+//         }
+//
+//         if (Input.GetKeyDown(KeyCode.Tab))
+//         {
+//             // disable gravity
+//         }
+//     }
+// }
