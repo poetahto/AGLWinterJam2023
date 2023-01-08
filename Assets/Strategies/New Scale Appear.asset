@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18192c19e30b42c7ba27039da983e3ba, type: 3}
   m_Name: New Scale Appear
   m_EditorClassIdentifier: 
-  scaleTime: 1
+  scaleTime: 3
   randomAmount: 0.5
   easing: 4
