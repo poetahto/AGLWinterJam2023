@@ -12,5 +12,10 @@ public class Restart : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Application.OpenURL("https://youtu.be/mXWOJM53thE?t=213");
+        }
     }
 }
