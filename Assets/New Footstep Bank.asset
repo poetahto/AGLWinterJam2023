@@ -15,8 +15,8 @@ MonoBehaviour:
   data:
   - tag: {fileID: 11400000, guid: 1adf0fbc6f0775e4fa91de19c36a77f7, type: 2}
     audioClip: {fileID: 8300000, guid: bdb19cbea1d09944ab95a574d3710056, type: 3}
-    volume: 0.3
+    volume: 0.15
   defaultData:
     tag: {fileID: 0}
     audioClip: {fileID: 8300000, guid: cb8abba50e747b544a26f9563ac9bea1, type: 3}
-    volume: 1
+    volume: 0.76

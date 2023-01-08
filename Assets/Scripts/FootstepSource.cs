@@ -51,7 +51,12 @@ public class FootstepSource : MonoBehaviour
 
     private void Awake()
     {
-        Services.EventBus.AddListener<JumpLandEvent>(e => { _elapsed = 0; }, "Resetting footstep source.");
+        Services.EventBus.AddListener<JumpLandEvent>(e => ResetDist(), "Resetting footstep source.");
+    }
+
+    public void ResetDist()
+    {
+        _elapsed = 0;
     }
 
     private void Update()
