@@ -41,13 +41,17 @@ namespace poetools.NewDirectory1
 
         public void SetRotation(Vector3 euler)
         {
-            PitchRotation.Rotation = Quaternion.Euler(euler.x, 0, 0);
-            YawRotation.Rotation = Quaternion.Euler(0, euler.y, 0);
+            _currentPitch = euler.x;
+            _currentYaw = euler.y;
+            PitchRotation.Rotation = Quaternion.Euler(_currentPitch, 0, 0);
+            YawRotation.Rotation = Quaternion.Euler(0, _currentYaw, 0);
+            // PitchRotation.Rotation = Quaternion.Euler(euler.x, 0, 0);
+            // YawRotation.Rotation = Quaternion.Euler(0, euler.y, 0);
         }
 
         public Vector3 GetRotation()
         {
-            return new Vector3(PitchRotation.Rotation.eulerAngles.x, YawRotation.Rotation.eulerAngles.y);
+            return new Vector3(_currentPitch, _currentYaw);
         }
     }
 }

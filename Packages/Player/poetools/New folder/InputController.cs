@@ -10,6 +10,7 @@ namespace poetools.New_folder
         public InputControlTarget Target { get; private set; }
         
         private bool _hasTarget;
+        public static float sensitivity = 1;
 
         private void Start()
         {
@@ -20,30 +21,30 @@ namespace poetools.New_folder
         {
             if (_hasTarget)
             {
-                if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space))
                     Target.inputJumpEvent.Invoke();
 
-                if (UnityEngine.Input.GetKeyDown(KeyCode.LeftShift))
+                if (Input.GetKeyDown(KeyCode.LeftShift))
                     Target.inputSprintEvent.Invoke(true);
                 
-                else if (UnityEngine.Input.GetKeyUp(KeyCode.LeftShift))
+                else if (Input.GetKeyUp(KeyCode.LeftShift))
                     Target.inputSprintEvent.Invoke(false);
 
-                if (UnityEngine.Input.GetKeyDown(KeyCode.LeftControl))
+                if (Input.GetKeyDown(KeyCode.LeftControl))
                     Target.inputCrouchEvent.Invoke(true);
                 
-                else if (UnityEngine.Input.GetKeyUp(KeyCode.LeftControl))
+                else if (Input.GetKeyUp(KeyCode.LeftControl))
                     Target.inputCrouchEvent.Invoke(false);
                 
                 Vector2 inputDirection = new Vector2(
-                    UnityEngine.Input.GetAxisRaw("Horizontal"), 
-                    UnityEngine.Input.GetAxisRaw("Vertical")
+                    Input.GetAxisRaw("Horizontal"), 
+                    Input.GetAxisRaw("Vertical")
                 );
 
                 Vector2 mouseDelta = new Vector2(
-                    UnityEngine.Input.GetAxisRaw("Mouse X"),
-                    UnityEngine.Input.GetAxisRaw("Mouse Y")
-                );
+                    Input.GetAxisRaw("Mouse X"),
+                    Input.GetAxisRaw("Mouse Y")
+                ) * sensitivity;
                 
                 Target.inputMoveEvent.Invoke(inputDirection);
                 Target.inputMouseDeltaEvent.Invoke(mouseDelta);
