@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlatformGroup : MonoBehaviour
@@ -29,5 +30,11 @@ public class PlatformGroup : MonoBehaviour
             
         StartCoroutine(strategy.Apply(_children));
         _isVisible = true;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+            Show();
     }
 }
