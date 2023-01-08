@@ -608,9 +608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0ac4d0ccf642eda37982e87082a02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepDistance: 0.35
+  stepDistance: 2
   groundCheck: {fileID: 1706194841}
-  minSpeed: 3
 --- !u!43 &68650180
 Mesh:
   m_ObjectHideFlags: 0
@@ -15838,6 +15837,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1490222727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8323748900781555562, guid: e375a0b4a14e5b04386cc93641ef3aca,
+    type: 3}
+  m_PrefabInstance: {fileID: 681627277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1498811754
 Mesh:
   m_ObjectHideFlags: 0
@@ -18715,12 +18720,25 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 681627277}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1490222727}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26f98fe3b85441c5989e6d2eb4e44bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1706194843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490222727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b9d8142aec4302bec1940292cfa73f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 5
 --- !u!1 &1710361242
 GameObject:
   m_ObjectHideFlags: 0

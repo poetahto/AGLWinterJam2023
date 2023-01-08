@@ -4,7 +4,7 @@ using poetools;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class FootstepBank : ScriptableObject
+public class AudioBank : ScriptableObject
 {
     [Serializable]
     public struct TagData

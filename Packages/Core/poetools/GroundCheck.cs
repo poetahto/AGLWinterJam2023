@@ -1,4 +1,5 @@
-﻿using poetools.Tools;
+﻿using System;
+using poetools.Tools;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -26,16 +27,24 @@ namespace poetools
             UpdateIsGrounded();
         }
 
+        public event Action OnTouchGround, OnLeaveGround; 
+
         private void UpdateIsGrounded()
         {
             WasGroundedLastFrame = IsGrounded;
             CheckIsGrounded();
-    
+
             if (JustEntered)
+            {
+                OnTouchGround?.Invoke();
                 TimeSpentFalling = 0;
-    
+            }
+
             if (JustExited)
+            {
+                OnLeaveGround?.Invoke();
                 TimeSpentGrounded = 0;
+            }
             
             if (IsGrounded)
                 TimeSpentGrounded += Time.deltaTime;

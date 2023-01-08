@@ -169,7 +169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footstepPlayer:
-    footstepBank: {fileID: 11400000, guid: 7078e00547f3a1c4c859ec281e2ccde6, type: 2}
+    audioBank: {fileID: 11400000, guid: 7078e00547f3a1c4c859ec281e2ccde6, type: 2}
+    player: {fileID: 820058089}
+  jumpPlayer:
+    audioBank: {fileID: 11400000, guid: 7078e00547f3a1c4c859ec281e2ccde6, type: 2}
     player: {fileID: 820058089}
 --- !u!82 &820058089
 AudioSource:

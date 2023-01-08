@@ -57,6 +57,7 @@ public class Entrypoint : MonoBehaviour
     #endregion
 
     [SerializeField] private FootstepPlayer footstepPlayer;
+    [SerializeField] private JumpPlayer jumpPlayer;
     
     private void Initialize()
     {
@@ -70,6 +71,7 @@ public class Entrypoint : MonoBehaviour
         Services.EventBus = new EventBus();
         
         footstepPlayer.Initialize();
+        jumpPlayer.Initialize();
 
         Services.EventBus.AddListener<LoadLevelEvent>(e =>
         {
@@ -80,5 +82,6 @@ public class Entrypoint : MonoBehaviour
     private void OnDestroy()
     {
         footstepPlayer.Dispose();
+        jumpPlayer.Dispose();
     }
 }

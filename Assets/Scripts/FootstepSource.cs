@@ -11,7 +11,7 @@ public struct FootstepEvent
 [Serializable]
 public class FootstepPlayer : IDisposable
 {
-    [SerializeField] private FootstepBank footstepBank;
+    [SerializeField] private AudioBank audioBank;
     [SerializeField] private AudioSource player;
 
     private IDisposable _listener;
@@ -28,9 +28,9 @@ public class FootstepPlayer : IDisposable
     
     public void OnStep(FootstepEvent eventData)
     {
-        FootstepBank.TagData data;
+        AudioBank.TagData data;
 
-        data = eventData.Surface.TryGetComponent(out TagHolder tagHolder) ? footstepBank.Lookup(tagHolder.tags) : footstepBank.defaultData;
+        data = eventData.Surface.TryGetComponent(out TagHolder tagHolder) ? audioBank.Lookup(tagHolder.tags) : audioBank.defaultData;
         
         player.PlayOneShot(data.audioClip, data.volume);
     }
@@ -56,7 +56,7 @@ public class FootstepSource : MonoBehaviour
 
     private void Update()
     {
-        if (groundCheck.IsGrounded)
+        if (groundCheck.IsGrounded && InputDirection != Vector2.zero)
         {
             _elapsed += (transform.position - _previousPosition).magnitude;
 
