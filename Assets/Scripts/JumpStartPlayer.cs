@@ -13,7 +13,6 @@ namespace DefaultNamespace
         {
             if (groundCheck.ConnectedCollider != null)
             {
-                print("good");
                 AudioBank.TagData data;
 
                 data = groundCheck.ConnectedCollider.TryGetComponent(out TagHolder tagHolder) ? audioBank.Lookup(tagHolder.tags) : audioBank.defaultData;
