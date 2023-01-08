@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using poetools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -77,6 +78,8 @@ public class Entrypoint : MonoBehaviour
         {
             SceneManager.LoadScene(e.LevelName);
         }, "Level Loader");
+        
+        SceneManager.LoadScene("Scenes/James Scene/James Scene");
     }
 
     private void OnDestroy()
