@@ -24,7 +24,8 @@ public class AmbienceController : MonoBehaviour
         float wavesT = Mathf.Clamp01(_playerTransform.position.y / maxWavesHeight);
         float windT = Mathf.Clamp01((_playerTransform.position.y - minWindHeight) / maxWindHeight);
 
-        wavesAudio.volume = (1 - wavesT) * _targetWavesVolume;
-        windAudio.volume = windT * _targetWindVolume;
+        var volume = PlayerPrefs.GetFloat("sfxVolume");
+        wavesAudio.volume = ((1 - wavesT) * _targetWavesVolume) * volume;
+        windAudio.volume = windT * _targetWindVolume * volume;
     }
 }

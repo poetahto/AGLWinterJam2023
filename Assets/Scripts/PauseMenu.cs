@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using poetools.New_folder;
+using UnityEngine;
 
 namespace DefaultNamespace
 {
@@ -7,6 +8,7 @@ namespace DefaultNamespace
 
     public class PauseMenu : MonoBehaviour
     {
+        public GameObject ui;
         private bool _isPaused;
         
         private void Update()
@@ -15,13 +17,20 @@ namespace DefaultNamespace
             {
                 if (_isPaused)
                 {
-                    Services.EventBus.Invoke(new PauseStopEvent(), "Pause Menu");
+                    FindObjectOfType<InputController>().SetTarget(FindObjectOfType<InputControlTarget>());
+                    ui.SetActive(false);
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Confined;
                 }
-
                 else
                 {
-                    Services.EventBus.Invoke(new PauseStartEvent(), "Pause Menu");
+                    FindObjectOfType<InputController>().SetTarget(null);
+                    ui.SetActive(true);
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
                 }
+
+                _isPaused = !_isPaused;
             }
         }
     }

@@ -76,7 +76,8 @@ public class Entrypoint : MonoBehaviour
 
         Services.EventBus.AddListener<LoadLevelEvent>(e =>
         {
-            SceneManager.LoadScene(e.LevelName);
+            if (SceneManager.GetActiveScene().name != e.LevelName)
+                SceneManager.LoadScene(e.LevelName);
         }, "Level Loader");
         
         SceneManager.LoadScene("Scenes/James Scene/James Scene");

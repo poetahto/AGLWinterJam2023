@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -32,6 +33,11 @@ namespace DefaultNamespace
                 currentSong = (currentSong + 1) % songs.Count;
                 yield return null;
             }
+        }
+
+        private void Update()
+        {
+            source.volume = PlayerPrefs.GetFloat("musicVolume");
         }
     }
 }

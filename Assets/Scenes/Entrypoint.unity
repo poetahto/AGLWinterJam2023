@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 820058087}
   - component: {fileID: 820058088}
   - component: {fileID: 820058089}
+  - component: {fileID: 820058090}
   m_Layer: 0
   m_Name: Entrypoint
   m_TagString: Untagged
@@ -270,3 +271,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &820058090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820058086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c7790ac90d4229b2260d5a5bf8d7f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 820058089}
