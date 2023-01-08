@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace poetools.Abstraction
+namespace poetools.Abstraction.Unity
 {
     [RequireComponent(typeof(Camera))]
     public class UnityCameraComponent : CameraComponent

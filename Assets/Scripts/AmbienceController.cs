@@ -1,29 +1,27 @@
 ﻿using UnityEngine;
 
-namespace DefaultNamespace
+public class AmbienceController : MonoBehaviour
 {
-    public class AmbienceController : MonoBehaviour
+    public AudioSource wavesAudio;
+    public AudioSource windAudio;
+    public float minWavesHeight = 50;
+    public float maxWavesHeight = 50;
+    public float minWindHeight = 25;
+    public float maxWindHeight = 100;
+
+    private Transform _playerTransform;
+
+    private void Awake()
     {
-        public AudioSource wavesAudio;
-        public AudioSource windAudio;
-        public float maxWavesHeight = 50;
-        public float minWindHeight = 25;
-        public float maxWindHeight = 100;
+        _playerTransform = FindObjectOfType<Camera>().transform;
+    }
 
-        private Transform _playerTransform;
+    private void Update()
+    {
+        float wavesT = Mathf.Clamp01(1 - ((_playerTransform.position.y - minWavesHeight) / maxWavesHeight));
+        float windT = Mathf.Clamp01((_playerTransform.position.y - minWindHeight) / maxWindHeight);
 
-        private void Awake()
-        {
-            _playerTransform = FindObjectOfType<Camera>().transform;
-        }
-
-        private void Update()
-        {
-            float wavesT = Mathf.Clamp01(1 - _playerTransform.position.y / maxWavesHeight);
-            float windT = Mathf.Clamp01((_playerTransform.position.y - minWindHeight) / maxWindHeight);
-
-            wavesAudio.volume = wavesT;
-            windAudio.volume = windT;
-        }
+        wavesAudio.volume = wavesT;
+        windAudio.volume = windT;
     }
 }

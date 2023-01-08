@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BeastWhisperer.Prototype.Platformer
+namespace poetools.New_folder
 {
     [CreateAssetMenu]
     public class MovementSettings : ScriptableObject

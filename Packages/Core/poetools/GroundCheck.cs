@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using poetools.Tools;
+﻿using poetools.Tools;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.Events;
 
 // - needs to provide more collision information for fall damage to be implemented
 // - overall hard to understand, clean code
 
-public class GroundCheck : MonoBehaviour
+namespace poetools
 {
-    [SerializeField]
+    public class GroundCheck : MonoBehaviour
+    {
+        [SerializeField]
         [Tooltip("The downwards direction used to check if we are grounded.")]
         private Vector3 gravityDirection = Vector3.down;
         
@@ -46,22 +45,22 @@ public class GroundCheck : MonoBehaviour
 
         #region Useful Data
 
-            // todo: All of this stuff is useful: its just not required by the interface right now, maybe create a new one? 
+        // todo: All of this stuff is useful: its just not required by the interface right now, maybe create a new one? 
 
-            private bool _isGrounded;
-            public bool IsGrounded => _isGrounded;
-            public float AirTime => TimeSpentFalling;
-            public float GroundTime => TimeSpentGrounded;
+        private bool _isGrounded;
+        public bool IsGrounded => _isGrounded;
+        public float AirTime => TimeSpentFalling;
+        public float GroundTime => TimeSpentGrounded;
             
-            private bool WasGroundedLastFrame { get; set; }
-            private float TimeSpentGrounded { get; set; }
-            private float TimeSpentFalling { get; set; }
+        public bool WasGroundedLastFrame { get; set; }
+        public float TimeSpentGrounded { get; set; }
+        public float TimeSpentFalling { get; set; }
             
-            private bool JustEntered => IsGrounded && !WasGroundedLastFrame;
-            private bool JustExited => !IsGrounded && WasGroundedLastFrame;
+        public bool JustEntered => IsGrounded && !WasGroundedLastFrame;
+        public bool JustExited => !IsGrounded && WasGroundedLastFrame;
 
-            private Vector3 ContactNormal { get; set; }
-            private Collider ConnectedCollider { get; set; }
+        public Vector3 ContactNormal { get; set; }
+        public Collider ConnectedCollider { get; set; }
 
         #endregion
 
@@ -119,21 +118,22 @@ public class GroundCheck : MonoBehaviour
 
         #region Debug
     
-            private void OnGUI()
+        private void OnGUI()
+        {
+            if (showDebug)
             {
-                if (showDebug)
-                {
-                    string connectedCollider = ConnectedCollider ? ConnectedCollider.name : "None";
+                string connectedCollider = ConnectedCollider ? ConnectedCollider.name : "None";
                         
-                    GUILayout.Label($"IsGrounded: {IsGrounded}");
-                    GUILayout.Label($"Was Grounded Last Frame: {WasGroundedLastFrame}");
-                    GUILayout.Label($"Connected Collider: {connectedCollider}");
-                    GUILayout.Label($"Contact Normal: {ContactNormal}");
-                    GUILayout.Label($"Time spent grounded: {TimeSpentGrounded}");
-                    GUILayout.Label($"Time spent falling: {TimeSpentFalling}");
-                    GUILayout.Label($"Velocity: {_velocity}");
-                }
+                GUILayout.Label($"IsGrounded: {IsGrounded}");
+                GUILayout.Label($"Was Grounded Last Frame: {WasGroundedLastFrame}");
+                GUILayout.Label($"Connected Collider: {connectedCollider}");
+                GUILayout.Label($"Contact Normal: {ContactNormal}");
+                GUILayout.Label($"Time spent grounded: {TimeSpentGrounded}");
+                GUILayout.Label($"Time spent falling: {TimeSpentFalling}");
+                GUILayout.Label($"Velocity: {_velocity}");
             }
+        }
     
         #endregion
+    }
 }

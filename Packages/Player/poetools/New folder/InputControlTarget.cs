@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace BeastWhisperer.Prototype.Platformer.Input
+namespace poetools.New_folder
 {
     public class InputControlTarget : MonoBehaviour
     {

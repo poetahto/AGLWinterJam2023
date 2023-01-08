@@ -298,6 +298,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &18402997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8323748900040459312, guid: e375a0b4a14e5b04386cc93641ef3aca,
+    type: 3}
+  m_PrefabInstance: {fileID: 681627277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &19860283
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,12 +590,27 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 681627277}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 18402997}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76f0dc85eedf3bc438f0c9e6cb63ea4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &31029044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18402997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0ac4d0ccf642eda37982e87082a02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepDistance: 0.35
+  groundCheck: {fileID: 1706194841}
+  minSpeed: 3
 --- !u!43 &68650180
 Mesh:
   m_ObjectHideFlags: 0
@@ -3146,6 +3167,7 @@ GameObject:
   - component: {fileID: 272903732}
   - component: {fileID: 272903731}
   - component: {fileID: 272903730}
+  - component: {fileID: 272903734}
   m_Layer: 0
   m_Name: Water Collisiion
   m_TagString: Untagged
@@ -3232,6 +3254,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &272903734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272903729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1896d87a5d417182e3fcda170fbe0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: 1adf0fbc6f0775e4fa91de19c36a77f7, type: 2}
 --- !u!1 &331088024
 GameObject:
   m_ObjectHideFlags: 0
@@ -5464,6 +5500,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8323748900040459272, guid: e375a0b4a14e5b04386cc93641ef3aca,
+        type: 3}
+      propertyPath: inputMoveEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323748900040459272, guid: e375a0b4a14e5b04386cc93641ef3aca,
+        type: 3}
+      propertyPath: inputSprintEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323748900040459272, guid: e375a0b4a14e5b04386cc93641ef3aca,
+        type: 3}
+      propertyPath: inputMoveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323748900040459272, guid: e375a0b4a14e5b04386cc93641ef3aca,
+        type: 3}
+      propertyPath: inputMoveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 31029044}
+    - target: {fileID: 8323748900040459272, guid: e375a0b4a14e5b04386cc93641ef3aca,
+        type: 3}
+      propertyPath: inputMoveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323748900040459272, guid: e375a0b4a14e5b04386cc93641ef3aca,
+        type: 3}
+      propertyPath: inputMoveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_InputDirection
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323748900040459272, guid: e375a0b4a14e5b04386cc93641ef3aca,
+        type: 3}
+      propertyPath: inputMoveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: FootstepSource, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323748900040459272, guid: e375a0b4a14e5b04386cc93641ef3aca,
+        type: 3}
+      propertyPath: inputMoveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8323748900040459275, guid: e375a0b4a14e5b04386cc93641ef3aca,
         type: 3}
       propertyPath: jumpHeight
@@ -11450,6 +11526,7 @@ GameObject:
   - component: {fileID: 1138258799}
   - component: {fileID: 1138258798}
   - component: {fileID: 1138258797}
+  - component: {fileID: 1138258801}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -11465,10 +11542,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138258796}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1138258798
@@ -11536,6 +11613,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1138258801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138258796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3c92609bd145efa9d910e5fd68d849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  oneShot: 0
+  collisionEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  collisionExit:
+    m_PersistentCalls:
+      m_Calls: []
+  showDebug: 0
 --- !u!1 &1146326237
 GameObject:
   m_ObjectHideFlags: 0
@@ -14671,6 +14771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavesAudio: {fileID: 1710361243}
   windAudio: {fileID: 812998579}
+  minWavesHeight: 50
   maxWavesHeight: 20
   minWindHeight: 15
   maxWindHeight: 40
@@ -18608,6 +18709,18 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!114 &1706194841 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8323748900781555560, guid: e375a0b4a14e5b04386cc93641ef3aca,
+    type: 3}
+  m_PrefabInstance: {fileID: 681627277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f98fe3b85441c5989e6d2eb4e44bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1710361242
 GameObject:
   m_ObjectHideFlags: 0

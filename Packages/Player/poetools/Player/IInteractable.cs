@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-public interface IInteractable
+namespace poetools.Player
 {
-    void HandleInteract(GameObject grabber);
+    public interface IInteractable
+    {
+        void HandleInteract(GameObject grabber);
+    }
 }

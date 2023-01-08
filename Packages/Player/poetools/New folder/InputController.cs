@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BeastWhisperer.Prototype.Platformer.Input
+namespace poetools.New_folder
 {
     public class InputController : MonoBehaviour
     {

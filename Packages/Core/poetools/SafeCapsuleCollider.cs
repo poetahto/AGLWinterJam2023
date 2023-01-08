@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Utility
+namespace poetools
 {
     public class SafeCapsuleCollider : SafeColliderGeneric<CapsuleCollider>
     {

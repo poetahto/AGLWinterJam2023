@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
 using UnityEngine;
 
-namespace poetools.Runtime.Systems
+namespace poetools.New_folder
 {
     [CreateAssetMenu]
     public class JumpSettings : ScriptableObject
